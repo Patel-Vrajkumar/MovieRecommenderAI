@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Movie Recommender AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin>
+</head>
+<body>
+    <!-- User profile: stats, top genres/directors, and rated movies. -->
+    <header>
+        <div class="header-content">
+            <h1>My Profile</h1>
+            <nav>
+                <a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a>
+                <a href="{{ url_for('view_watchlist') }}" class="nav-link">📋 Watchlist ({{ stats.total_watchlist }})</a>
+                <a href="{{ url_for('user_profile') }}" class="nav-link active">👤 Profile</a>
+                {% if current_user.is_authenticated %}
+                    <span class="nav-link" style="opacity:0.8;">👋 {{ current_user.email }}</span>
+                    <a href="{{ url_for('logout') }}" class="nav-link">🚪 Logout</a>
+                {% else %}
+                    <a href="#" id="open-login" class="nav-link">🔐 Login</a>
+                    <a href="#" id="open-register" class="nav-link">📝 Register</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- User Stats -->
+        <div class="profile-stats">
+            <div class="stat-card">
+                <i class="fas fa-star" style="color: #FFD700;"></i>
+                <h3>{{ stats.total_ratings }}</h3>
+                <p>Movies Rated</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bookmark" style="color: #667eea;"></i>
+                <h3>{{ stats.total_watchlist }}</h3>
+                <p>In Watchlist</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-eye" style="color: #38ef7d;"></i>
+                <h3>{{ stats.total_views }}</h3>
+                <p>Movies Viewed</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-search" style="color: #f5576c;"></i>
+                <h3>{{ stats.total_searches }}</h3>
+                <p>Searches Made</p>
+            </div>
+        </div>
+
+        <!-- Average Rating -->
+        {% if stats.average_rating > 0 %}
+        <div class="average-rating">
+            <h2>Your Average Rating: ⭐ {{ "%.1f"|format(stats.average_rating) }}/5</h2>
+        </div>
+        {% endif %}
+
+        <!-- Top Genres -->
+        {% if stats.top_genres %}
+        <div class="preferences-section">
+            <h2>Your Favorite Genres</h2>
+            <div class="preference-tags">
+                {% for genre, score in stats.top_genres %}
+                <span class="preference-tag">{{ genre }} ({{ "%.1f"|format(score) }})</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Top Directors -->
+        {% if stats.top_directors %}
+        <div class="preferences-section">
+            <h2>Your Favorite Directors</h2>
+            <div class="preference-tags">
+                {% for director, score in stats.top_directors %}
+                <span class="preference-tag">{{ director }} ({{ "%.1f"|format(score) }})</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Rated Movies -->
+        {% if rated_movies %}
+        <div class="rated-movies-section">
+            <h2>Your Rated Movies</h2>
+            <div id="movies">
+                {% for movie in rated_movies %}
+                <div class="movie">
+                    <img src="{{ movie.poster }}" alt="{{ movie.title }}">
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p>Your Rating: ⭐ {{ movie.user_rating }}/5</p>
+                        <p>TMDb Rating: ⭐ {{ movie.tmdb_rating }}/10</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if not current_user.is_authenticated %}
+    <!-- Auth Modal (Login / Register) -->
+    <div id="auth-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" style="display:none;">
+        <div class="modal-content small">
+            <span class="modal-close" aria-label="Close">&times;</span>
+            <div class="auth-modal">
+                <div class="auth-tabs">
+                    <button id="tab-login" class="auth-tab active" type="button">Login</button>
+                    <button id="tab-register" class="auth-tab" type="button">Register</button>
+                </div>
+
+                <!-- Login section -->
+                <section id="section-login">
+                    <div id="login-error" class="auth-error"></div>
+                    <div id="login-success" class="auth-success"></div>
+                    <form id="form-login" class="auth-form">
+                        <div class="form-row">
+                            <label for="login-email">Email</label>
+                            <input id="login-email" type="email" name="email" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" type="password" name="password" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="primary-trailer-btn"><i class="fas fa-right-to-bracket"></i> Login</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Register section -->
+                <section id="section-register" style="display:none;">
+                    <div id="register-error" class="auth-error"></div>
+                    <div id="register-success" class="auth-success"></div>
+                    <form id="form-register" class="auth-form">
+                        <div class="form-row">
+                            <label for="register-email">Email</label>
+                            <input id="register-email" type="email" name="email" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="register-password">Password</label>
+                            <input id="register-password" type="password" name="password" minlength="6" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="register-confirm">Confirm Password</label>
+                            <input id="register-confirm" type="password" name="confirm" minlength="6" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="primary-trailer-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        {% if not current_user.is_authenticated %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                var modal = document.getElementById('auth-modal');
+                if (modal) { modal.style.display = 'block'; }
+            });
+        </script>
+        {% endif %}
+</body>
+</html>

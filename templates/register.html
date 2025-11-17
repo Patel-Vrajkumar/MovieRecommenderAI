@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Movie Recommender AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Create Account</h1>
+      <nav>
+        <a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a>
+        <a href="{{ url_for('login') }}" class="nav-link">🔐 Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="notification notification-info show" style="margin:10px 0;">
+        {{ messages[0] }}
+      </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="auth-form">
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" minlength="6" required>
+      </div>
+      <div class="form-row">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" minlength="6" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="primary-trailer-btn"><i class="fas fa-user-plus"></i> Create Account</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

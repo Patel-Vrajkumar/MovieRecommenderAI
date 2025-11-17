@@ -1,0 +1,254 @@
+{
+  "user_id": "56f7d67a0e6085ca",
+  "created_at": "2025-11-14T10:43:01.288468",
+  "ratings": {},
+  "watchlist": [
+    1242898
+  ],
+  "viewed": [
+    {
+      "movie_id": 645046,
+      "timestamp": "2025-11-14T10:43:01.288468"
+    },
+    {
+      "movie_id": 927,
+      "timestamp": "2025-11-14T10:43:01.298871"
+    },
+    {
+      "movie_id": 1062722,
+      "timestamp": "2025-11-14T10:45:03.099029"
+    },
+    {
+      "movie_id": 635910,
+      "timestamp": "2025-11-14T10:45:03.102258"
+    },
+    {
+      "movie_id": 1197137,
+      "timestamp": "2025-11-14T10:45:03.104269"
+    },
+    {
+      "movie_id": 928,
+      "timestamp": "2025-11-14T10:45:03.108788"
+    },
+    {
+      "movie_id": 1571470,
+      "timestamp": "2025-11-14T10:45:03.112934"
+    },
+    {
+      "movie_id": 931,
+      "timestamp": "2025-11-14T10:45:03.115930"
+    },
+    {
+      "movie_id": 71912,
+      "timestamp": "2025-11-14T10:45:03.118643"
+    },
+    {
+      "movie_id": 645046,
+      "timestamp": "2025-11-14T10:45:03.121656"
+    },
+    {
+      "movie_id": 10489,
+      "timestamp": "2025-11-14T10:45:03.124715"
+    },
+    {
+      "movie_id": 927,
+      "timestamp": "2025-11-14T10:45:03.129906"
+    },
+    {
+      "movie_id": 640,
+      "timestamp": "2025-11-14T14:53:24.342426"
+    },
+    {
+      "movie_id": 11657,
+      "timestamp": "2025-11-14T14:53:24.352427"
+    },
+    {
+      "movie_id": 562,
+      "timestamp": "2025-11-14T14:53:24.357425"
+    },
+    {
+      "movie_id": 11896,
+      "timestamp": "2025-11-14T14:53:24.370428"
+    },
+    {
+      "movie_id": 19823,
+      "timestamp": "2025-11-14T14:53:24.375427"
+    },
+    {
+      "movie_id": 1369679,
+      "timestamp": "2025-11-14T14:53:24.389204"
+    },
+    {
+      "movie_id": 1888,
+      "timestamp": "2025-11-14T14:53:24.393552"
+    },
+    {
+      "movie_id": 9270,
+      "timestamp": "2025-11-17T10:07:46.320704"
+    },
+    {
+      "movie_id": 1429738,
+      "timestamp": "2025-11-17T10:07:46.336703"
+    },
+    {
+      "movie_id": 37022,
+      "timestamp": "2025-11-17T10:07:46.352701"
+    },
+    {
+      "movie_id": 299537,
+      "timestamp": "2025-11-17T10:07:46.367701"
+    },
+    {
+      "movie_id": 35711,
+      "timestamp": "2025-11-17T10:07:46.381740"
+    },
+    {
+      "movie_id": 473256,
+      "timestamp": "2025-11-17T10:07:46.394248"
+    },
+    {
+      "movie_id": 1248226,
+      "timestamp": "2025-11-17T10:08:52.973146"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-17T10:08:52.989145"
+    },
+    {
+      "movie_id": 1116465,
+      "timestamp": "2025-11-17T10:08:53.002148"
+    },
+    {
+      "movie_id": 9689,
+      "timestamp": "2025-11-17T10:08:53.014148"
+    },
+    {
+      "movie_id": 531593,
+      "timestamp": "2025-11-17T10:08:53.023126"
+    },
+    {
+      "movie_id": 673,
+      "timestamp": "2025-11-17T10:10:06.984702"
+    },
+    {
+      "movie_id": 1062722,
+      "timestamp": "2025-11-17T10:10:06.998709"
+    },
+    {
+      "movie_id": 1116465,
+      "timestamp": "2025-11-17T10:10:07.016223"
+    },
+    {
+      "movie_id": 1249417,
+      "timestamp": "2025-11-17T10:10:07.031223"
+    },
+    {
+      "movie_id": 28638,
+      "timestamp": "2025-11-17T10:10:07.048223"
+    },
+    {
+      "movie_id": 9732,
+      "timestamp": "2025-11-17T10:10:07.067222"
+    },
+    {
+      "movie_id": 1062722,
+      "timestamp": "2025-11-17T10:15:26.373894"
+    },
+    {
+      "movie_id": 299534,
+      "timestamp": "2025-11-17T10:15:26.390895"
+    },
+    {
+      "movie_id": 35854,
+      "timestamp": "2025-11-17T10:15:26.407974"
+    },
+    {
+      "movie_id": 478538,
+      "timestamp": "2025-11-17T10:15:26.426283"
+    },
+    {
+      "movie_id": 299687,
+      "timestamp": "2025-11-17T10:15:26.432377"
+    },
+    {
+      "movie_id": 28856,
+      "timestamp": "2025-11-17T10:15:26.452377"
+    },
+    {
+      "movie_id": 28856,
+      "timestamp": "2025-11-17T10:15:26.462384"
+    }
+  ],
+  "clicked_trailers": [
+    {
+      "movie_id": 425274,
+      "timestamp": "2025-11-17T10:09:30.656699"
+    }
+  ],
+  "searches": [
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-14T10:45:03.063673"
+    },
+    {
+      "query": "Ocean's Eleven",
+      "timestamp": "2025-11-14T14:52:58.543344"
+    },
+    {
+      "query": "Ocean's Eleven",
+      "timestamp": "2025-11-14T14:52:59.736882"
+    },
+    {
+      "query": "21 Jump Street",
+      "timestamp": "2025-11-17T10:07:27.704328"
+    },
+    {
+      "query": "21 Jump Street",
+      "timestamp": "2025-11-17T10:07:28.693251"
+    },
+    {
+      "query": "21 Jump Street",
+      "timestamp": "2025-11-17T10:08:24.338666"
+    },
+    {
+      "query": "Tropic Thunder",
+      "timestamp": "2025-11-17T10:08:39.750291"
+    },
+    {
+      "query": "Tropic Thunder",
+      "timestamp": "2025-11-17T10:08:40.714148"
+    },
+    {
+      "query": "Tropic Thunder",
+      "timestamp": "2025-11-17T10:09:10.017075"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-17T10:09:51.648129"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-17T10:09:52.266451"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-17T10:15:06.094371"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-17T10:15:06.947660"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-17T10:16:03.631755"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  },
+  "disliked": [],
+  "liked": []
+}

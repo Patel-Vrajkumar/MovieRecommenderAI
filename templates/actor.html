@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ actor.name }} — Filmography</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Loader.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <link rel="preconnect" href="https://image.tmdb.org" crossorigin>
+</head>
+<body>
+  <!-- Actor page: shows person header (bio, meta) and filmography grid. -->
+  <header>
+    <div class="header-content">
+      <h1>Movie Recommender AI</h1>
+      <nav>
+        <a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a>
+        <a href="{{ url_for('view_watchlist') }}" class="nav-link">📋 Watchlist ({{ user_stats.total_watchlist }})</a>
+        <a href="{{ url_for('user_profile') }}" class="nav-link">👤 Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="primary-movie-section" style="margin-top: 30px;">
+    <div class="primary-layout">
+      <div class="primary-poster">
+  <img src="{{ actor.profile }}" alt="{{ actor.name }}" loading="lazy" decoding="async" />
+      </div>
+      <div class="primary-details">
+        <h2 class="primary-title">{{ actor.name }}</h2>
+        <div class="primary-meta">
+          {% if actor.known_for_department %}<span>{{ actor.known_for_department }}</span>{% endif %}
+          {% if actor.birthday %}<span>Born: {{ actor.birthday }}</span>{% endif %}
+          {% if actor.place_of_birth %}<span>{{ actor.place_of_birth }}</span>{% endif %}
+        </div>
+        {% if actor.biography %}
+          <p class="primary-overview">{{ actor.biography }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" style="margin-top: 20px;">
+    <h2>🎭 Filmography</h2>
+    <p class="collection-subtitle">Movies featuring {{ actor.name }}</p>
+  </div>
+
+  <div id="movies" class="movies-grid">
+    {% for movie in movies %}
+      <div class="movie">
+  <img src="{{ movie.poster }}" alt="{{ movie.title }}" loading="lazy" decoding="async" />
+        <div class="movie-info">
+          <h3>{{ movie.title }}</h3>
+          <p>Role: {{ movie.character }}</p>
+          <p>Release: {{ movie.release_date }}</p>
+          <p>Rating: ⭐ {{ movie.rating }}</p>
+          <p>{{ movie.overview }}</p>
+          <div class="movie-actions">
+            <button class="details-btn" data-movie-id="{{ movie.id }}">
+              <i class="fas fa-info-circle"></i> Details
+            </button>
+            <button class="watchlist-btn" data-movie-id="{{ movie.id }}">
+              <i class="fas fa-bookmark"></i>
+              <span class="watchlist-text">{% if movie.id in watchlist %}Remove{% else %}Watchlist{% endif %}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div id="modal-body">
+        <div class="modal-loader">
+          <i class="fas fa-spinner fa-spin"></i> Loading details...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

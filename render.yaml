@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: movie-recommender-ai
+    runtime: python
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    envVars:
+      - key: TMDB_API_KEY
+        sync: false
+      - key: APP_SECRET_KEY
+        generateValue: true
+      - key: DEFAULT_REGION
+        value: US
+      - key: ENABLE_CONCEPT_EXPANSION
+        value: "true"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: DATABASE_URL
+        value: sqlite:////data/app.db
+      - key: ENABLE_HF_MODEL
+        value: "false"
+      - key: ENABLE_RERANKER
+        value: "false"
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 2

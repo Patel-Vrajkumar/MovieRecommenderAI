@@ -1,0 +1,41 @@
+{
+  "user_id": "cebd82bd17ca1feb",
+  "created_at": "2025-11-06T10:54:35.028714",
+  "ratings": {},
+  "watchlist": [],
+  "viewed": [
+    {
+      "movie_id": 507244,
+      "timestamp": "2025-11-06T10:54:38.378900"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-06T10:54:38.379907"
+    },
+    {
+      "movie_id": 755898,
+      "timestamp": "2025-11-06T10:54:38.381905"
+    }
+  ],
+  "clicked_trailers": [],
+  "searches": [
+    {
+      "query": "Transformers: Five Faces of Darkness",
+      "timestamp": "2025-11-06T10:54:35.028714"
+    },
+    {
+      "query": "Transformers: Five Faces of Darkness",
+      "timestamp": "2025-11-06T10:54:36.130978"
+    },
+    {
+      "query": "Transformers: Five Faces of Darkness",
+      "timestamp": "2025-11-06T10:54:44.305925"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  }
+}

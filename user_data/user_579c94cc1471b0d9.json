@@ -1,0 +1,71 @@
+{
+  "user_id": "579c94cc1471b0d9",
+  "created_at": "2025-11-13T12:15:53.450745",
+  "ratings": {},
+  "watchlist": [],
+  "viewed": [
+    {
+      "movie_id": 157336,
+      "timestamp": "2025-11-13T12:16:10.083761"
+    },
+    {
+      "movie_id": 62,
+      "timestamp": "2025-11-13T12:16:10.087498"
+    },
+    {
+      "movie_id": 105,
+      "timestamp": "2025-11-13T12:16:10.089499"
+    },
+    {
+      "movie_id": 18,
+      "timestamp": "2025-11-13T12:16:10.091499"
+    },
+    {
+      "movie_id": 11,
+      "timestamp": "2025-11-13T12:16:10.092496"
+    },
+    {
+      "movie_id": 137,
+      "timestamp": "2025-11-13T12:16:10.094605"
+    },
+    {
+      "movie_id": 104,
+      "timestamp": "2025-11-13T12:16:10.097123"
+    },
+    {
+      "movie_id": 449946,
+      "timestamp": "2025-11-13T12:16:10.099121"
+    },
+    {
+      "movie_id": 63,
+      "timestamp": "2025-11-13T12:16:10.101121"
+    },
+    {
+      "movie_id": 74,
+      "timestamp": "2025-11-13T12:16:10.103123"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-13T12:16:10.105576"
+    },
+    {
+      "movie_id": 19,
+      "timestamp": "2025-11-13T12:16:10.107348"
+    }
+  ],
+  "clicked_trailers": [],
+  "searches": [
+    {
+      "query": "Interstellar",
+      "timestamp": "2025-11-13T12:15:53.450745"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  },
+  "disliked": [],
+  "liked": []
+}

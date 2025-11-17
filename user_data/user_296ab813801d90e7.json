@@ -1,0 +1,94 @@
+{
+  "user_id": "296ab813801d90e7",
+  "created_at": "2025-11-04T10:37:13.078833",
+  "ratings": {},
+  "watchlist": [],
+  "viewed": [
+    {
+      "movie_id": 261,
+      "timestamp": "2025-11-04T10:37:30.702371"
+    },
+    {
+      "movie_id": 320,
+      "timestamp": "2025-11-04T10:37:30.703374"
+    },
+    {
+      "movie_id": 8453,
+      "timestamp": "2025-11-04T10:37:30.704373"
+    },
+    {
+      "movie_id": 266550,
+      "timestamp": "2025-11-04T10:37:30.704373"
+    },
+    {
+      "movie_id": 827057,
+      "timestamp": "2025-11-04T10:37:30.705373"
+    },
+    {
+      "movie_id": 8867,
+      "timestamp": "2025-11-04T10:37:30.706374"
+    },
+    {
+      "movie_id": 1029235,
+      "timestamp": "2025-11-04T10:37:37.968409"
+    },
+    {
+      "movie_id": 330,
+      "timestamp": "2025-11-04T10:37:37.969378"
+    },
+    {
+      "movie_id": 326,
+      "timestamp": "2025-11-04T10:37:37.970378"
+    },
+    {
+      "movie_id": 4234,
+      "timestamp": "2025-11-04T10:37:37.971378"
+    },
+    {
+      "movie_id": 4289,
+      "timestamp": "2025-11-04T10:37:37.971378"
+    },
+    {
+      "movie_id": 755898,
+      "timestamp": "2025-11-04T10:37:37.972378"
+    },
+    {
+      "movie_id": 4284,
+      "timestamp": "2025-11-04T10:37:37.973379"
+    },
+    {
+      "movie_id": 440,
+      "timestamp": "2025-11-04T10:37:37.974376"
+    },
+    {
+      "movie_id": 8690,
+      "timestamp": "2025-11-04T10:37:37.975377"
+    },
+    {
+      "movie_id": 8691,
+      "timestamp": "2025-11-04T10:37:37.976378"
+    }
+  ],
+  "clicked_trailers": [
+    {
+      "movie_id": 1029235,
+      "timestamp": "2025-11-04T10:38:20.361483"
+    }
+  ],
+  "searches": [
+    {
+      "query": "animal",
+      "timestamp": "2025-11-04T10:37:13.078833"
+    },
+    {
+      "query": "anaconda",
+      "timestamp": "2025-11-04T10:37:23.156760"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  }
+}

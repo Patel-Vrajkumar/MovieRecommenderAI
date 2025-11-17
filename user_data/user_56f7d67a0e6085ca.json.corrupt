@@ -1,0 +1,613 @@
+{
+  "user_id": "56f7d67a0e6085ca",
+  "created_at": "2025-11-07T13:58:18.048524",
+  "ratings": {},
+  "watchlist": [
+    1858,
+    10643,
+    1322488
+  ],
+  "viewed": [
+    {
+      "movie_id": 38055,
+      "timestamp": "2025-11-13T11:44:42.792612"
+    },
+    {
+      "movie_id": 39254,
+      "timestamp": "2025-11-13T11:44:42.805293"
+    },
+    {
+      "movie_id": 460458,
+      "timestamp": "2025-11-13T11:44:42.816404"
+    },
+    {
+      "movie_id": 10529,
+      "timestamp": "2025-11-13T11:44:42.825912"
+    },
+    {
+      "movie_id": 8337,
+      "timestamp": "2025-11-13T11:44:42.836535"
+    },
+    {
+      "movie_id": 50357,
+      "timestamp": "2025-11-13T11:44:42.847685"
+    },
+    {
+      "movie_id": 457162,
+      "timestamp": "2025-11-13T11:44:42.858193"
+    },
+    {
+      "movie_id": 10547,
+      "timestamp": "2025-11-13T11:44:42.868298"
+    },
+    {
+      "movie_id": 1062722,
+      "timestamp": "2025-11-13T11:45:06.606757"
+    },
+    {
+      "movie_id": 38356,
+      "timestamp": "2025-11-13T11:45:06.646794"
+    },
+    {
+      "movie_id": 373571,
+      "timestamp": "2025-11-13T11:45:06.688371"
+    },
+    {
+      "movie_id": 22824,
+      "timestamp": "2025-11-13T11:45:06.718904"
+    },
+    {
+      "movie_id": 8337,
+      "timestamp": "2025-11-13T11:45:06.749456"
+    },
+    {
+      "movie_id": 36139,
+      "timestamp": "2025-11-13T11:45:06.780794"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-13T11:46:47.364037"
+    },
+    {
+      "movie_id": 9460,
+      "timestamp": "2025-11-13T11:46:47.465200"
+    },
+    {
+      "movie_id": 1034482,
+      "timestamp": "2025-11-13T11:46:47.501324"
+    },
+    {
+      "movie_id": 10054,
+      "timestamp": "2025-11-13T11:46:47.512517"
+    },
+    {
+      "movie_id": 9320,
+      "timestamp": "2025-11-13T11:46:47.553607"
+    },
+    {
+      "movie_id": 9423,
+      "timestamp": "2025-11-13T11:46:47.564776"
+    },
+    {
+      "movie_id": 1248226,
+      "timestamp": "2025-11-13T11:48:02.915269"
+    },
+    {
+      "movie_id": 557,
+      "timestamp": "2025-11-13T11:48:16.859275"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-13T11:48:16.871561"
+    },
+    {
+      "movie_id": 9455,
+      "timestamp": "2025-11-13T11:48:16.882209"
+    },
+    {
+      "movie_id": 9460,
+      "timestamp": "2025-11-13T11:48:16.893666"
+    },
+    {
+      "movie_id": 461130,
+      "timestamp": "2025-11-13T11:48:16.904682"
+    },
+    {
+      "movie_id": 1034482,
+      "timestamp": "2025-11-13T11:48:16.915847"
+    },
+    {
+      "movie_id": 10054,
+      "timestamp": "2025-11-13T11:48:16.926784"
+    },
+    {
+      "movie_id": 10857,
+      "timestamp": "2025-11-13T11:48:16.937035"
+    },
+    {
+      "movie_id": 11045,
+      "timestamp": "2025-11-13T11:48:16.947134"
+    },
+    {
+      "movie_id": 9456,
+      "timestamp": "2025-11-13T11:48:16.958285"
+    },
+    {
+      "movie_id": 10992,
+      "timestamp": "2025-11-13T11:48:16.968417"
+    },
+    {
+      "movie_id": 9423,
+      "timestamp": "2025-11-13T11:48:16.977924"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-13T11:50:29.320994"
+    },
+    {
+      "movie_id": 755898,
+      "timestamp": "2025-11-13T11:50:29.368332"
+    },
+    {
+      "movie_id": 1096563,
+      "timestamp": "2025-11-13T11:50:29.380847"
+    },
+    {
+      "movie_id": 635910,
+      "timestamp": "2025-11-13T12:13:32.766464"
+    },
+    {
+      "movie_id": 1197137,
+      "timestamp": "2025-11-13T12:13:32.807138"
+    },
+    {
+      "movie_id": 228496,
+      "timestamp": "2025-11-13T12:13:32.848092"
+    },
+    {
+      "movie_id": 36456,
+      "timestamp": "2025-11-13T12:13:32.889183"
+    },
+    {
+      "movie_id": 36489,
+      "timestamp": "2025-11-13T12:13:32.929702"
+    },
+    {
+      "movie_id": 1062722,
+      "timestamp": "2025-11-13T12:13:49.931321"
+    },
+    {
+      "movie_id": 635910,
+      "timestamp": "2025-11-13T12:13:49.942563"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-13T12:13:49.953671"
+    },
+    {
+      "movie_id": 1197137,
+      "timestamp": "2025-11-13T12:13:49.964218"
+    },
+    {
+      "movie_id": 1571470,
+      "timestamp": "2025-11-13T12:13:49.974689"
+    },
+    {
+      "movie_id": 71912,
+      "timestamp": "2025-11-13T12:13:49.985778"
+    },
+    {
+      "movie_id": 228496,
+      "timestamp": "2025-11-13T12:13:49.996282"
+    },
+    {
+      "movie_id": 36529,
+      "timestamp": "2025-11-13T12:13:50.006632"
+    },
+    {
+      "movie_id": 36456,
+      "timestamp": "2025-11-13T12:13:50.018152"
+    },
+    {
+      "movie_id": 226884,
+      "timestamp": "2025-11-13T12:13:50.028859"
+    },
+    {
+      "movie_id": 36489,
+      "timestamp": "2025-11-13T12:13:50.040413"
+    },
+    {
+      "movie_id": 9693,
+      "timestamp": "2025-11-13T12:14:26.739065"
+    },
+    {
+      "movie_id": 10447,
+      "timestamp": "2025-11-13T12:14:26.781074"
+    },
+    {
+      "movie_id": 457222,
+      "timestamp": "2025-11-13T12:14:26.824456"
+    },
+    {
+      "movie_id": 10785,
+      "timestamp": "2025-11-13T12:14:26.903251"
+    },
+    {
+      "movie_id": 11260,
+      "timestamp": "2025-11-13T12:14:26.940576"
+    },
+    {
+      "movie_id": 71912,
+      "timestamp": "2025-11-13T12:17:52.906033"
+    },
+    {
+      "movie_id": 228496,
+      "timestamp": "2025-11-13T12:17:52.928995"
+    },
+    {
+      "movie_id": 36529,
+      "timestamp": "2025-11-13T12:17:52.965115"
+    },
+    {
+      "movie_id": 36489,
+      "timestamp": "2025-11-13T12:17:53.043049"
+    },
+    {
+      "movie_id": 97,
+      "timestamp": "2025-11-14T10:28:33.194614"
+    },
+    {
+      "movie_id": 1946,
+      "timestamp": "2025-11-14T10:28:33.205306"
+    },
+    {
+      "movie_id": 18,
+      "timestamp": "2025-11-14T10:28:33.216179"
+    },
+    {
+      "movie_id": 8765,
+      "timestamp": "2025-11-14T10:28:33.229789"
+    },
+    {
+      "movie_id": 62,
+      "timestamp": "2025-11-14T10:28:33.241071"
+    },
+    {
+      "movie_id": 39057,
+      "timestamp": "2025-11-14T10:28:33.251897"
+    },
+    {
+      "movie_id": 7737,
+      "timestamp": "2025-11-14T10:28:33.262275"
+    },
+    {
+      "movie_id": 74,
+      "timestamp": "2025-11-14T10:28:33.273615"
+    },
+    {
+      "movie_id": 38510,
+      "timestamp": "2025-11-14T10:28:33.284760"
+    },
+    {
+      "movie_id": 294594,
+      "timestamp": "2025-11-14T10:28:33.295412"
+    },
+    {
+      "movie_id": 10069,
+      "timestamp": "2025-11-14T10:28:33.306601"
+    },
+    {
+      "movie_id": 294254,
+      "timestamp": "2025-11-14T10:28:33.318076"
+    },
+    {
+      "movie_id": 97,
+      "timestamp": "2025-11-14T10:39:18.657374"
+    },
+    {
+      "movie_id": 1946,
+      "timestamp": "2025-11-14T10:39:18.670891"
+    },
+    {
+      "movie_id": 8765,
+      "timestamp": "2025-11-14T10:39:18.683402"
+    },
+    {
+      "movie_id": 62,
+      "timestamp": "2025-11-14T10:39:18.694983"
+    },
+    {
+      "movie_id": 39057,
+      "timestamp": "2025-11-14T10:39:18.706242"
+    },
+    {
+      "movie_id": 7737,
+      "timestamp": "2025-11-14T10:39:18.718388"
+    },
+    {
+      "movie_id": 38510,
+      "timestamp": "2025-11-14T10:39:18.729611"
+    },
+    {
+      "movie_id": 1242898,
+      "timestamp": "2025-11-14T10:39:18.746187"
+    },
+    {
+      "movie_id": 149,
+      "timestamp": "2025-11-14T10:39:18.758793"
+    },
+    {
+      "movie_id": 294594,
+      "timestamp": "2025-11-14T10:39:18.771165"
+    },
+    {
+      "movie_id": 18,
+      "timestamp": "2025-11-14T10:39:18.786574"
+    },
+    {
+      "movie_id": 74,
+      "timestamp": "2025-11-14T10:39:18.798620"
+    },
+    {
+      "movie_id": 1924,
+      "timestamp": "2025-11-14T10:39:24.912024"
+    },
+    {
+      "movie_id": 2756,
+      "timestamp": "2025-11-14T10:39:24.923554"
+    },
+    {
+      "movie_id": 841,
+      "timestamp": "2025-11-14T10:39:24.935128"
+    },
+    {
+      "movie_id": 5548,
+      "timestamp": "2025-11-14T10:39:24.945640"
+    },
+    {
+      "movie_id": 847,
+      "timestamp": "2025-11-14T10:39:24.958718"
+    },
+    {
+      "movie_id": 152,
+      "timestamp": "2025-11-14T10:39:24.970727"
+    },
+    {
+      "movie_id": 36819,
+      "timestamp": "2025-11-14T10:39:24.981303"
+    },
+    {
+      "movie_id": 157,
+      "timestamp": "2025-11-14T10:39:24.992814"
+    },
+    {
+      "movie_id": 11639,
+      "timestamp": "2025-11-14T10:39:25.004390"
+    },
+    {
+      "movie_id": 8536,
+      "timestamp": "2025-11-14T10:39:25.017472"
+    },
+    {
+      "movie_id": 154,
+      "timestamp": "2025-11-14T10:39:25.029534"
+    },
+    {
+      "movie_id": 861,
+      "timestamp": "2025-11-14T10:39:25.041105"
+    },
+    {
+      "movie_id": 635910,
+      "timestamp": "2025-11-14T10:43:01.205248"
+    },
+    {
+      "movie_id": 928,
+      "timestamp": "2025-11-14T10:43:01.241617"
+    },
+    {
+      "movie_id": 931,
+      "timestamp": "2025-11-14T10:43:01.255188"
+    }
+  ],
+  "clicked_trailers": [
+    {
+      "movie_id": 1858,
+      "timestamp": "2025-11-13T10:31:32.670694"
+    },
+    {
+      "movie_id": 39057,
+      "timestamp": "2025-11-14T10:32:57.074726"
+    }
+  ],
+  "searches": [
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-07T13:58:18.049076"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-07T13:58:19.105732"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T10:29:10.247884"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T10:30:09.898775"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T10:48:32.922232"
+    },
+    {
+      "query": "young sheldon",
+      "timestamp": "2025-11-13T10:53:15.667997"
+    },
+    {
+      "query": "young Sheldon",
+      "timestamp": "2025-11-13T10:53:19.845144"
+    },
+    {
+      "query": "Agent Cody Banks",
+      "timestamp": "2025-11-13T10:53:48.860605"
+    },
+    {
+      "query": "Agent Cody Banks",
+      "timestamp": "2025-11-13T10:53:49.944400"
+    },
+    {
+      "query": "Agent Cody Banks",
+      "timestamp": "2025-11-13T10:54:18.661922"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:02:10.278013"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:02:23.954353"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:03:02.485931"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:13:46.090632"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:13:47.476099"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:16:17.734650"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:16:18.433970"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:17:36.396883"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:17:43.840561"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:18:15.053137"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:18:25.070405"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:18:36.445061"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:18:41.380666"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:43:47.161663"
+    },
+    {
+      "query": "Transformers",
+      "timestamp": "2025-11-13T11:44:42.695884"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:44:55.516979"
+    },
+    {
+      "query": "Pacific Rim",
+      "timestamp": "2025-11-13T11:44:57.340384"
+    },
+    {
+      "query": "Spider-Man",
+      "timestamp": "2025-11-13T11:46:30.970164"
+    },
+    {
+      "query": "Spider-Man",
+      "timestamp": "2025-11-13T11:46:32.454648"
+    },
+    {
+      "query": "Spider-Man",
+      "timestamp": "2025-11-13T11:48:01.179676"
+    },
+    {
+      "query": "Spider-Man",
+      "timestamp": "2025-11-13T11:48:16.490735"
+    },
+    {
+      "query": "Transformers: Five Faces of Darkness",
+      "timestamp": "2025-11-13T11:50:27.886518"
+    },
+    {
+      "query": "Transformers: Five Faces of Darkness",
+      "timestamp": "2025-11-13T11:50:28.554123"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-13T12:13:05.687205"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-13T12:13:06.579188"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-13T12:13:49.895265"
+    },
+    {
+      "query": "Predator: Badlands",
+      "timestamp": "2025-11-13T12:14:07.024042"
+    },
+    {
+      "query": "Predator: Badlands",
+      "timestamp": "2025-11-13T12:14:07.819266"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-13T12:17:41.318703"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-13T12:17:42.498566"
+    },
+    {
+      "query": "Tron",
+      "timestamp": "2025-11-14T10:28:09.617632"
+    },
+    {
+      "query": "Tron",
+      "timestamp": "2025-11-14T10:39:06.814758"
+    },
+    {
+      "query": "Tron",
+      "timestamp": "2025-11-14T10:39:08.145274"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-14T10:42:47.254543"
+    },
+    {
+      "query": "Frankenstein",
+      "timestamp": "2025-11-14T10:42:48.238344"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  },
+  "disliked": [],
+  "liked": []
+}]
+}

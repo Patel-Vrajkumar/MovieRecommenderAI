@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Loader.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin>
+    <meta name="description" content="Discover smart movie recommendations with concept-aware AI. Search by movie or actor and build your watchlist.">
+    <meta property="og:title" content="Movie Recommender AI">
+    <meta property="og:description" content="Discover smart movie recommendations with concept-aware AI.">
+    <meta property="og:type" content="website">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+        <!--
+            Main search and recommendations page.
+
+            Layout order:
+            1) Header + Color controls
+            2) Search form (Movie/Actor) with autocomplete
+            3) Filters & sorting (when results)
+            4) Primary Movie (hero for searched title)
+            5) Collection (franchise movies)
+            6) Suggested movies (AI + personalization)
+            7) Pagination (bottom only) and Scroll-to-top
+            8) Details modal (lazy-fetched via JS)
+        -->
+    <header>
+        <div class="header-content">
+            <h1>Movie Recommender AI</h1>
+            <nav>
+                <a href="{{ url_for('home') }}" class="nav-link">🏠 Home</a>
+                <a href="{{ url_for('view_watchlist') }}" class="nav-link">📋 Watchlist ({{ user_stats.total_watchlist }})</a>
+                <a href="{{ url_for('user_profile') }}" class="nav-link">👤 Profile</a>
+                {% if current_user.is_authenticated %}
+                    <span class="nav-link" style="opacity:0.8;">👋 {{ current_user.email }}</span>
+                    <a href="{{ url_for('logout') }}" class="nav-link">🚪 Logout</a>
+                {% endif %}
+                <button type="button" id="theme-panel-toggle" class="nav-link" title="Customize Colors">🎨 Colors</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Theme Customization Panel -->
+    <div id="theme-panel" class="theme-panel">
+        <h3>🎨 Customize Theme</h3>
+        <div class="panel-row">
+            <label for="accent-color">Accent Color</label>
+            <input type="color" id="accent-color" value="#FFD700">
+        </div>
+        <div class="panel-row">
+            <label for="neon-color">Neon/Glow Color</label>
+            <input type="color" id="neon-color" value="#FFA500">
+        </div>
+        <div class="panel-row actions">
+            <button type="button" id="apply-colors" class="panel-btn">Apply</button>
+            <button type="button" id="reset-colors" class="panel-btn">Reset</button>
+            <button type="button" id="close-panel" class="panel-btn">Close</button>
+        </div>
+        <p class="panel-hint">Your selections are saved in this browser.</p>
+    </div>
+
+    <!-- Full-page AI working overlay -->
+    <div id="ai-overlay" class="ai-overlay" style="display:none;">
+        <div class="ai-overlay-content">
+            <div class="ai-spinner"></div>
+            <p>🤖 AI is working… just a moment</p>
+        </div>
+    </div>
+
+    <form method="POST" id="search-form">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="notification notification-info show" style="margin:10px 0;">
+                        {{ messages[0] }}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+        <div class="search-container">
+            <input type="text" name="movie_title" id="search-input" placeholder="Search movies or actors…" value="{{ query }}" autocomplete="off">
+            <button type="submit" class="primary-trailer-btn" aria-label="Search"><i class="fas fa-search"></i> Search</button>
+            <input type="hidden" name="previous_query" value="{{ query }}">
+            <div id="autocomplete-dropdown" class="autocomplete-dropdown"></div>
+            <a href="{{ url_for('random_movie') }}" class="trailer-btn" style="margin-left:10px;">🎲 Random Movie</a>
+        </div>
+        <div class="search-type-toggle" role="tablist" aria-label="Search Mode">
+            <label class="seg-option" role="tab" aria-selected="{% if current_search_type=='movie' %}true{% else %}false{% endif %}">
+                <input type="radio" name="search_type" value="movie" {% if current_search_type=='movie' %}checked{% endif %}>
+                <span><i class="fas fa-film"></i> Movie</span>
+            </label>
+            <label class="seg-option" role="tab" aria-selected="{% if current_search_type=='actor' %}true{% else %}false{% endif %}">
+                <input type="radio" name="search_type" value="actor" {% if current_search_type=='actor' %}checked{% endif %}>
+                <span><i class="fas fa-user"></i> Actor</span>
+            </label>
+        </div>
+    </form>
+
+    
+
+    <!-- Loading Skeleton -->
+    <div id="loading-skeleton" class="loader-container" style="display: none;">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+    </div>
+
+    {% if (query and primary_movie) or random_mode %}
+    <section id="primary-movie" class="primary-movie-section">
+        <div class="primary-layout">
+            <div class="primary-poster">
+                <img src="{{ primary_movie.poster }}" alt="{{ primary_movie.title }} poster" loading="lazy" decoding="async">
+            </div>
+            <div class="primary-details">
+                <h2 class="primary-title">{{ primary_movie.title }}</h2>
+                {% if primary_movie.tagline %}<p class="primary-tagline">"{{ primary_movie.tagline }}"</p>{% endif %}
+                <div class="primary-meta">
+                    <span>⭐ {{ primary_movie.rating }}/10</span>
+                    <span>{{ primary_movie.release_date }}</span>
+                    {% if primary_movie.runtime %}<span>{{ primary_movie.runtime }} min</span>{% endif %}
+                </div>
+                <div class="primary-genres">
+                    {% for g in primary_movie.genres %}<span class="genre-chip">{{ g }}</span>{% endfor %}
+                </div>
+                <p class="primary-overview">{{ primary_movie.overview }}</p>
+                {% if primary_movie.director %}<p class="dir"><strong>Director:</strong> {{ primary_movie.director }}</p>{% endif %}
+                {% if primary_movie.writers %}<p class="writers"><strong>Writers:</strong> {{ primary_movie.writers|join(', ') }}</p>{% endif %}
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                    {% if primary_movie.trailer %}
+                    <a href="{{ primary_movie.trailer }}" target="_blank" class="primary-trailer-btn"><i class="fas fa-play"></i> Watch Trailer</a>
+                    {% endif %}
+                    {% if primary_movie.watch_link %}
+                    <a href="{{ primary_movie.watch_link }}" target="_blank" rel="noopener" class="primary-trailer-btn" style="background: linear-gradient(135deg, #38ef7d, #11998e);"><i class="fas fa-tv"></i> Watch Now</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if primary_movie.cast %}
+        <div class="primary-cast">
+            <h3>Top Cast</h3>
+            <div class="cast-strip">
+                {% for person in primary_movie.cast %}
+                <a class="cast-item" href="{{ url_for('actor_page', person_id=person.id) }}" title="See movies by {{ person.name }}">
+                    <img src="{{ person.profile }}" alt="{{ person.name }}" loading="lazy" decoding="async">
+                    <div class="cast-name">{{ person.name }}</div>
+                    <div class="cast-character">{{ person.character }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </section>
+    {% endif %}
+
+    {% if query and collection_movies and not random_mode %}
+    <div class="collection-section">
+        <h2>🎬 {{ collection_movies[0].collection_name }}</h2>
+        <p class="collection-subtitle">All movies in this franchise</p>
+        <div class="collection-grid">
+            {% for movie in collection_movies %}
+            <div class="movie collection-movie">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" loading="lazy" decoding="async">
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>Release: {{ movie.release_date }}</p>
+                    <p>Rating: ⭐ {{ movie.rating }}</p>
+                    <p>{{ movie.overview }}</p>
+                    
+                    <!-- Rating Stars -->
+                    <div class="rating-stars" data-movie-id="{{ movie.id }}">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="movie-actions">
+                        <button class="details-btn" data-movie-id="{{ movie.id }}">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                        {% if movie.trailer %}
+                        <a href="{{ movie.trailer }}" target="_blank" class="trailer-btn" data-movie-id="{{ movie.id }}">
+                            <i class="fas fa-play"></i> Trailer
+                        </a>
+                        {% endif %}
+                        <button class="watchlist-btn" data-movie-id="{{ movie.id }}">
+                            <i class="fas fa-bookmark"></i> 
+                            <span class="watchlist-text">{% if movie.id in watchlist %}Remove{% else %}Watchlist{% endif %}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if recommended_movies %}
+    <div class="section-divider" id="similar-movies">
+        <h2>🤖 Suggested Movies</h2>
+        <p class="collection-subtitle">Intelligent recommendations based on your search</p>
+    </div>
+    
+    <div class="results-count">
+        <p>Showing {{ recommended_movies|length }} movies</p>
+    </div>
+    
+    <div id="movies" class="movies-grid">
+        {% for movie in recommended_movies %}
+        <div class="movie">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }}" loading="lazy" decoding="async">
+
+            <div class="movie-info">
+                <h3>{{ movie.title }}</h3>
+                {% if movie.ai_match %}
+                <p class="ai-badge">🤖 {{ movie.ai_match }}</p>
+                {% endif %}
+                {% if movie.personalization_score %}
+                <p class="personalization-badge">👤 +{{ movie.personalization_score }}% personal match</p>
+                {% endif %}
+                <button type="button" class="watchlist-btn explain-btn" data-movie-id="{{ movie.id }}" data-ai-match="{{ movie.ai_match }}" data-personalization="{{ movie.personalization_score }}" style="margin-top:6px;">
+                    <i class="fas fa-question-circle"></i> Why?
+                </button>
+                <div class="feedback-row" style="margin-top:6px; display:flex; gap:8px;">
+                    <button type="button" class="watchlist-btn not-interested-btn" data-movie-id="{{ movie.id }}" title="Not interested">
+                        <i class="fas fa-ban"></i> Not interested
+                    </button>
+                    <button type="button" class="watchlist-btn more-like-btn" data-movie-id="{{ movie.id }}" title="More like this">
+                        <i class="fas fa-thumbs-up"></i> More like this
+                    </button>
+                </div>
+                <p>Release: {{ movie.release_date }}</p>
+                <p>Rating: ⭐ {{ movie.rating }}</p>
+                <p>{{ movie.overview }}</p>
+                
+                <!-- Rating Stars -->
+                <div class="rating-stars" data-movie-id="{{ movie.id }}">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="movie-actions">
+                    <button class="details-btn" data-movie-id="{{ movie.id }}">
+                        <i class="fas fa-info-circle"></i> Details
+                    </button>
+                    {% if movie.trailer %}
+                    <a href="{{ movie.trailer }}" target="_blank" class="trailer-btn" data-movie-id="{{ movie.id }}">
+                        <i class="fas fa-play"></i> Trailer
+                    </a>
+                    {% endif %}
+                    <button class="watchlist-btn" data-movie-id="{{ movie.id }}">
+                        <i class="fas fa-bookmark"></i> 
+                        <span class="watchlist-text">{% if movie.id in watchlist %}Remove{% else %}Watchlist{% endif %}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination-container">
+        <div class="pagination">
+            {% if page > 1 %}
+            <form method="POST" class="pagination-form">
+                <input type="hidden" name="movie_title" value="{{ query }}">
+                <input type="hidden" name="previous_query" value="{{ query }}">
+                <input type="hidden" name="page" value="1">
+                <button type="submit" class="page-btn first-page" title="First Page">
+                    <i class="fas fa-angle-double-left"></i>
+                </button>
+            </form>
+            <form method="POST" class="pagination-form">
+                <input type="hidden" name="movie_title" value="{{ query }}">
+                <input type="hidden" name="previous_query" value="{{ query }}">
+                <input type="hidden" name="page" value="{{ page - 1 }}">
+                <button type="submit" class="page-btn prev-page">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+            </form>
+            {% endif %}
+            
+            <div class="page-numbers">
+                {% for p in range([1, page - 2]|max, [page + 3, 6]|min) %}
+                <form method="POST" class="pagination-form">
+                    <input type="hidden" name="movie_title" value="{{ query }}">
+                    <input type="hidden" name="previous_query" value="{{ query }}">
+                    <input type="hidden" name="page" value="{{ p }}">
+                    <button type="submit" class="page-number {% if p == page %}active{% endif %}">{{ p }}</button>
+                </form>
+                {% endfor %}
+            </div>
+            
+            <form method="POST" class="pagination-form">
+                <input type="hidden" name="movie_title" value="{{ query }}">
+                <input type="hidden" name="previous_query" value="{{ query }}">
+                <input type="hidden" name="page" value="{{ page + 1 }}">
+                <button type="submit" class="page-btn next-page">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </form>
+        </div>
+        
+        <button class="scroll-to-top" onclick="scrollToTop()" title="Back to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+    {% else %}
+        {% if query %}
+            <p style="margin-top:20px;">No movies found for "{{ query }}".</p>
+        {% endif %}
+    {% endif %}
+
+    {# Default homepage content when no query #}
+    {% if not query and not random_mode %}
+        {% if latest_hero %}
+        <section id="latest-hero" class="primary-movie-section">
+            <h2 style="margin-left:8px;">🆕 Latest Movie</h2>
+            <div class="primary-layout">
+                <div class="primary-poster">
+                    <img src="{{ latest_hero.poster }}" alt="{{ latest_hero.title }} poster" loading="lazy" decoding="async">
+                </div>
+                <div class="primary-details">
+                    <h2 class="primary-title">{{ latest_hero.title }}</h2>
+                    {% if latest_hero.tagline %}<p class="primary-tagline">"{{ latest_hero.tagline }}"</p>{% endif %}
+                    <div class="primary-meta">
+                        <span>⭐ {{ latest_hero.rating }}/10</span>
+                        <span>{{ latest_hero.release_date }}</span>
+                        {% if latest_hero.runtime %}<span>{{ latest_hero.runtime }} min</span>{% endif %}
+                    </div>
+                    <div class="primary-genres">
+                        {% for g in latest_hero.genres %}<span class="genre-chip">{{ g }}</span>{% endfor %}
+                    </div>
+                    <p class="primary-overview">{{ latest_hero.overview }}</p>
+                    {% if latest_hero.director %}<p class="dir"><strong>Director:</strong> {{ latest_hero.director }}</p>{% endif %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        {% if latest_movies %}
+        <div class="section-divider"><h2>🆕 Latest Releases</h2><p class="collection-subtitle">Fresh in theaters</p></div>
+    <div id="latest-movies" class="movies-grid grid-4">
+            {% for movie in latest_movies %}
+            <div class="movie">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" loading="lazy" decoding="async">
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>Release: {{ movie.release_date }}</p>
+                    <p>Rating: ⭐ {{ movie.rating }}</p>
+                    <p>{{ movie.overview }}</p>
+                    <div class="movie-actions">
+                        <button class="details-btn" data-movie-id="{{ movie.id }}">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                        {% if movie.trailer %}<a href="{{ movie.trailer }}" target="_blank" class="trailer-btn" data-movie-id="{{ movie.id }}">Trailer</a>{% endif %}
+                        <button class="watchlist-btn" data-movie-id="{{ movie.id }}"><i class="fas fa-bookmark"></i> <span class="watchlist-text">{% if movie.id in watchlist %}Remove{% else %}Watchlist{% endif %}</span></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if trending_hero %}
+        <section id="trending-hero" class="primary-movie-section" style="margin-top:40px;">
+            <h2 style="margin-left:8px;">🔥 Trending Highlight</h2>
+            <div class="primary-layout">
+                <div class="primary-poster">
+                    <img src="{{ trending_hero.poster }}" alt="{{ trending_hero.title }} poster" loading="lazy" decoding="async">
+                </div>
+                <div class="primary-details">
+                    <h2 class="primary-title">{{ trending_hero.title }}</h2>
+                    {% if trending_hero.tagline %}<p class="primary-tagline">"{{ trending_hero.tagline }}"</p>{% endif %}
+                    <div class="primary-meta">
+                        <span>⭐ {{ trending_hero.rating }}/10</span>
+                        <span>{{ trending_hero.release_date }}</span>
+                        {% if trending_hero.runtime %}<span>{{ trending_hero.runtime }} min</span>{% endif %}
+                    </div>
+                    <div class="primary-genres">
+                        {% for g in trending_hero.genres %}<span class="genre-chip">{{ g }}</span>{% endfor %}
+                    </div>
+                    <p class="primary-overview">{{ trending_hero.overview }}</p>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        {% if trending_movies %}
+        <div class="section-divider"><h2>🔥 Trending Now</h2><p class="collection-subtitle">What everyone is watching</p></div>
+    <div id="trending-movies" class="movies-grid grid-4">
+            {% for movie in trending_movies %}
+            <div class="movie">
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" loading="lazy" decoding="async">
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p>Release: {{ movie.release_date }}</p>
+                    <p>Rating: ⭐ {{ movie.rating }}</p>
+                    <p>{{ movie.overview }}</p>
+                    <div class="movie-actions">
+                        <button class="details-btn" data-movie-id="{{ movie.id }}">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                        {% if movie.trailer %}<a href="{{ movie.trailer }}" target="_blank" class="trailer-btn" data-movie-id="{{ movie.id }}">Trailer</a>{% endif %}
+                        <button class="watchlist-btn" data-movie-id="{{ movie.id }}"><i class="fas fa-bookmark"></i> <span class="watchlist-text">{% if movie.id in watchlist %}Remove{% else %}Watchlist{% endif %}</span></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endif %}
+
+    <!-- Movie Details Modal -->
+    <div id="movie-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body">
+                <div class="modal-loader">
+                    <i class="fas fa-spinner fa-spin"></i> Loading details...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+{
+  "user_id": "c0a5282cf4cb9bab",
+  "created_at": "2025-11-06T11:16:52.672677",
+  "ratings": {},
+  "watchlist": [],
+  "viewed": [
+    {
+      "movie_id": 672,
+      "timestamp": "2025-11-06T11:17:00.639004"
+    },
+    {
+      "movie_id": 674,
+      "timestamp": "2025-11-06T11:17:00.639521"
+    },
+    {
+      "movie_id": 673,
+      "timestamp": "2025-11-06T11:17:00.640588"
+    },
+    {
+      "movie_id": 141,
+      "timestamp": "2025-11-06T11:17:00.641143"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-06T11:17:00.642221"
+    },
+    {
+      "movie_id": 642885,
+      "timestamp": "2025-11-06T11:17:00.643409"
+    },
+    {
+      "movie_id": 460399,
+      "timestamp": "2025-11-06T11:17:00.644507"
+    },
+    {
+      "movie_id": 642,
+      "timestamp": "2025-11-06T11:17:00.647095"
+    },
+    {
+      "movie_id": 460465,
+      "timestamp": "2025-11-06T11:17:00.647604"
+    },
+    {
+      "movie_id": 668,
+      "timestamp": "2025-11-06T11:17:00.648125"
+    },
+    {
+      "movie_id": 657,
+      "timestamp": "2025-11-06T11:17:00.649129"
+    },
+    {
+      "movie_id": 646,
+      "timestamp": "2025-11-06T11:17:00.650129"
+    },
+    {
+      "movie_id": 672,
+      "timestamp": "2025-11-06T11:17:00.652576"
+    },
+    {
+      "movie_id": 674,
+      "timestamp": "2025-11-06T11:17:00.653635"
+    },
+    {
+      "movie_id": 673,
+      "timestamp": "2025-11-06T11:17:00.654639"
+    },
+    {
+      "movie_id": 141,
+      "timestamp": "2025-11-06T11:17:00.655639"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-06T11:17:00.657142"
+    },
+    {
+      "movie_id": 642885,
+      "timestamp": "2025-11-06T11:17:00.657142"
+    },
+    {
+      "movie_id": 460399,
+      "timestamp": "2025-11-06T11:17:00.658740"
+    },
+    {
+      "movie_id": 642,
+      "timestamp": "2025-11-06T11:17:00.659815"
+    },
+    {
+      "movie_id": 460465,
+      "timestamp": "2025-11-06T11:17:00.660944"
+    },
+    {
+      "movie_id": 668,
+      "timestamp": "2025-11-06T11:17:00.661990"
+    },
+    {
+      "movie_id": 657,
+      "timestamp": "2025-11-06T11:17:00.662994"
+    },
+    {
+      "movie_id": 646,
+      "timestamp": "2025-11-06T11:17:00.663994"
+    },
+    {
+      "movie_id": 672,
+      "timestamp": "2025-11-06T11:17:38.657131"
+    },
+    {
+      "movie_id": 674,
+      "timestamp": "2025-11-06T11:17:38.658116"
+    },
+    {
+      "movie_id": 673,
+      "timestamp": "2025-11-06T11:17:38.658116"
+    },
+    {
+      "movie_id": 141,
+      "timestamp": "2025-11-06T11:17:38.659621"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-06T11:17:38.660657"
+    },
+    {
+      "movie_id": 642885,
+      "timestamp": "2025-11-06T11:17:38.661658"
+    },
+    {
+      "movie_id": 460399,
+      "timestamp": "2025-11-06T11:17:38.662627"
+    },
+    {
+      "movie_id": 642,
+      "timestamp": "2025-11-06T11:17:38.663628"
+    },
+    {
+      "movie_id": 460465,
+      "timestamp": "2025-11-06T11:17:38.665218"
+    },
+    {
+      "movie_id": 668,
+      "timestamp": "2025-11-06T11:17:38.666226"
+    },
+    {
+      "movie_id": 657,
+      "timestamp": "2025-11-06T11:17:38.667224"
+    },
+    {
+      "movie_id": 646,
+      "timestamp": "2025-11-06T11:17:38.668222"
+    },
+    {
+      "movie_id": 672,
+      "timestamp": "2025-11-06T11:17:58.619201"
+    },
+    {
+      "movie_id": 674,
+      "timestamp": "2025-11-06T11:17:58.620201"
+    },
+    {
+      "movie_id": 673,
+      "timestamp": "2025-11-06T11:17:58.621199"
+    },
+    {
+      "movie_id": 141,
+      "timestamp": "2025-11-06T11:17:58.622199"
+    },
+    {
+      "movie_id": 1218925,
+      "timestamp": "2025-11-06T11:17:58.623200"
+    },
+    {
+      "movie_id": 642885,
+      "timestamp": "2025-11-06T11:17:58.624201"
+    },
+    {
+      "movie_id": 460399,
+      "timestamp": "2025-11-06T11:17:58.625199"
+    },
+    {
+      "movie_id": 642,
+      "timestamp": "2025-11-06T11:17:58.625807"
+    },
+    {
+      "movie_id": 460465,
+      "timestamp": "2025-11-06T11:17:58.626810"
+    },
+    {
+      "movie_id": 668,
+      "timestamp": "2025-11-06T11:17:58.628313"
+    },
+    {
+      "movie_id": 657,
+      "timestamp": "2025-11-06T11:17:58.629317"
+    },
+    {
+      "movie_id": 646,
+      "timestamp": "2025-11-06T11:17:58.631320"
+    },
+    {
+      "movie_id": 36619,
+      "timestamp": "2025-11-06T11:18:25.673516"
+    },
+    {
+      "movie_id": 80530,
+      "timestamp": "2025-11-06T11:18:25.675484"
+    },
+    {
+      "movie_id": 886596,
+      "timestamp": "2025-11-06T11:18:25.676484"
+    },
+    {
+      "movie_id": 409409,
+      "timestamp": "2025-11-06T11:18:25.677484"
+    },
+    {
+      "movie_id": 43711,
+      "timestamp": "2025-11-06T11:18:25.678102"
+    },
+    {
+      "movie_id": 263867,
+      "timestamp": "2025-11-06T11:18:25.680106"
+    },
+    {
+      "movie_id": 570602,
+      "timestamp": "2025-11-06T11:18:25.680106"
+    },
+    {
+      "movie_id": 594248,
+      "timestamp": "2025-11-06T11:18:25.681609"
+    },
+    {
+      "movie_id": 658393,
+      "timestamp": "2025-11-06T11:18:25.685243"
+    },
+    {
+      "movie_id": 42034,
+      "timestamp": "2025-11-06T11:18:25.686588"
+    },
+    {
+      "movie_id": 632782,
+      "timestamp": "2025-11-06T11:18:25.687815"
+    },
+    {
+      "movie_id": 824469,
+      "timestamp": "2025-11-06T11:18:25.688820"
+    }
+  ],
+  "clicked_trailers": [],
+  "searches": [
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-06T11:16:52.672677"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-06T11:16:53.524703"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-06T11:17:33.070042"
+    },
+    {
+      "query": "Harry Potter and the Philosopher's Stone",
+      "timestamp": "2025-11-06T11:17:46.765462"
+    },
+    {
+      "query": "Harry Potter",
+      "timestamp": "2025-11-06T11:17:53.144194"
+    },
+    {
+      "query": "Harry Potter",
+      "timestamp": "2025-11-06T11:18:10.402496"
+    },
+    {
+      "query": "Harry Potter",
+      "timestamp": "2025-11-06T11:18:12.952528"
+    }
+  ],
+  "preferences": {
+    "genres": {},
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  }
+}

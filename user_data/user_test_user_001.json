@@ -1,0 +1,47 @@
+{
+  "user_id": "test_user_001",
+  "created_at": "2025-11-03T14:00:37.001040",
+  "ratings": {
+    "157336": {
+      "rating": 5,
+      "timestamp": "2025-11-06T11:46:12.905407"
+    },
+    "155": {
+      "rating": 5,
+      "timestamp": "2025-11-06T11:46:13.203861"
+    },
+    "27205": {
+      "rating": 5,
+      "timestamp": "2025-11-06T11:46:13.409816"
+    },
+    "603": {
+      "rating": 4,
+      "timestamp": "2025-11-06T11:46:13.726236"
+    },
+    "78": {
+      "rating": 4,
+      "timestamp": "2025-11-06T11:46:14.012615"
+    }
+  },
+  "watchlist": [
+    438631,
+    1124,
+    577922
+  ],
+  "viewed": [],
+  "clicked_trailers": [],
+  "searches": [],
+  "preferences": {
+    "genres": {
+      "Adventure": 4.0,
+      "Drama": 5.6,
+      "Science Fiction": 7.2,
+      "Action": 5.6,
+      "Crime": 2.0,
+      "Thriller": 3.6
+    },
+    "directors": {},
+    "actors": {},
+    "keywords": {}
+  }
+}
